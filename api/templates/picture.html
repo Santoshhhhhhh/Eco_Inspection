@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+    {% for output in outputs %}
+        {% if loop.index % 4 == 1 %}
+        <div class="image-row">
+        {% endif %}
+        <div class="con">
+            <h4 style="text-align: center;">{{output[0]}}</h4>
+            <img src="{{ url_for('static', filename='frames_int/' + output[1]) }}" alt="">
+        </div>
+        {% if loop.index % 4 == 0 or loop.last %}
+        </div>
+        {% endif %}
+    {% endfor %}
+
+    <h3 style="text-align: center;">All</h3>
+    {% for answer in answers %}
+        {% if loop.index % 4 == 1 %}
+        <div class="image-row">
+        {% endif %}
+        <div class="con">
+        <img src="{{ url_for('static', filename='frames_int/' + answer) }}" alt="">
+        </div>
+        {% if loop.index % 4 == 0 or loop.last %}
+        </div>
+        {% endif %}
+    {% endfor %}
+
+
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+    {% for output in outputs %}
+        {% if loop.index % 4 == 1 %}
+        <div class="image-row">
+        {% endif %}
+        <div class="con">
+            <h4 style="text-align: center;">{{output[0]}}</h4>
+            <img src="{{ url_for('static', filename='frames_ext/' + output[1]) }}" alt="">
+        </div>
+        {% if loop.index % 4 == 0 or loop.last %}
+        </div>
+        {% endif %}
+    {% endfor %}
+
+    <h3 style="text-align: center;">Front</h3>
+    {% for fr in front %}
+        {% if loop.index % 4 == 1 %}
+        <div class="image-row">
+        {% endif %}
+        <div class="con">
+            <h4 style="text-align: center;">{{fr[0]}}</h4>
+            <img src="{{ url_for('static', filename='front/' + fr[1]) }}" alt="">
+        </div>
+        {% if loop.index % 4 == 0 or loop.last %}
+        </div>
+        {% endif %}
+    {% endfor %}
+
+    <h3 style="text-align: center;">Rear</h3>
+    {% for re in rear %}
+        {% if loop.index % 4 == 1 %}
+        <div class="image-row">
+        {% endif %}
+        <div class="con">
+            <h4 style="text-align: center;">{{re[0]}}</h4>
+            <img src="{{ url_for('static', filename='rear/' + re[1]) }}" alt="">
+        </div>
+        {% if loop.index % 4 == 0 or loop.last %}
+        </div>
+        {% endif %}
+    {% endfor %}
+
+    <h3 style="text-align: center;">Left</h3>
+    {% for le in left %}
+        {% if loop.index % 4 == 1 %}
+        <div class="image-row">
+        {% endif %}
+        <div class="con">
+            <h4 style="text-align: center;">{{le[0]}}</h4>
+            <img src="{{ url_for('static', filename='left/' + le[1]) }}" alt="">
+        </div>
+        {% if loop.index % 4 == 0 or loop.last %}
+        </div>
+        {% endif %}
+    {% endfor %}
+     
+    <h3 style="text-align: center;">Right</h3>
+    {% for ri in right %}
+        {% if loop.index % 4 == 1 %}
+        <div class="image-row">
+        {% endif %}
+        <div class="con">
+            <h4 style="text-align: center;">{{ri[0]}}</h4>
+            <img src="{{ url_for('static', filename='right/' + ri[1]) }}" alt="">
+        </div>
+        {% if loop.index % 4 == 0 or loop.last %}
+        </div>
+        {% endif %}
+    {% endfor %}
+
+    <h3 style="text-align: center;">All</h3>
+    {% for answer in answers %}
+        {% if loop.index % 4 == 1 %}
+        <div class="image-row">
+        {% endif %}
+        <div class="con">
+        <img src="{{ url_for('static', filename='frames_ext/' + answer) }}" alt="">
+        </div>
+        {% if loop.index % 4 == 0 or loop.last %}
+        </div>
+        {% endif %}
+    {% endfor %}
+
+
+{% endblock %}

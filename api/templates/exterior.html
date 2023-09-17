@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Car Views</title>
+<script>
+    function displaySelectedFile(event) {
+        var fileInput = event.target;
+        var fileName = fileInput.files[0].name;
+        var fileDisplay = document.getElementById('file-name');
+        fileDisplay.textContent = fileName;
+    }
+    
+</script>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>Exterior Video</h1>
+    <form id="upload-form" action="/" method="POST" enctype="multipart/form-data">
+        <label for="file-input" class="file-label">Choose File</label>
+        <input type="file" name="video" id="file-input" class="file-upload" onchange="displaySelectedFile(event)">
+        <span id="file-name"></span>
+        <button type="submit" class="upload-button">Upload</button>
+    </form>
+</div>
+<p style="text-align: center;color: red;">{{Statement}}</p>
+<div class="content">
+<a href="/interior">Interior Views</a>
+</div>
+{% endblock %}
