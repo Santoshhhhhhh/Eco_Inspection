@@ -1,0 +1,14 @@
+.ipynb_checkpoints/
+data-set/*
+logs/*
+/yolov5/
+*.log
+*.mp4
+*.jpg
+*.jpeg
+*.webp
+*.png
+*.keras
+*.pt
+*.txt
+*.npy
